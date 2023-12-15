@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Book;
 
 use Illuminate\Http\Request;
 
@@ -11,13 +12,17 @@ class BookController extends Controller
     }
     public function index(){
         //fetch books data from books table
-        
+        $books =Book ::limit(30)->get();
+
+        //dd($books);
 
 
         //pass books data to view
+        return view(view:'books.index')
+        ->with('books',$books)
+        ;
     }
 
-    public function index(){
-        return view(view:'books. index');
-    }
+   
+    
 }
