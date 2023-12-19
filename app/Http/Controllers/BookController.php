@@ -11,17 +11,20 @@ class BookController extends Controller
         return view(view:'welcome');
     }
     public function index(){
-        //fetch books data from books table
-        $books =Book ::limit(30)->get();
-
-        //dd($books);
-
-
-        //pass books data to view
-        return view(view:'books.index')
-        ->with('books',$books)
-        ;
+        // fetch books data from the books table
+        $books = Book::limit(30)->get();
+        //  echo $books ->toJson();
+        // return;
+        
+        // pass books data to the view
+        return view('books.index')->with('books', $books);
     }
+    public function show($book_id){
+        $book = Book::find($book_id);
+        
+        return view(view:'books.show')->with('books',$book);
+    }
+    
 
    
     
