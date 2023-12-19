@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookStore</title>
-</head>
-<body>
-    <h1>BookStore</h1>
-    <table width="50%",border="1">
+@extends('layout')
+
+@section('page-content')
+<h1>BookStore</h1>
+    <table class="table table-striped table-dark">
         <tr>
             <th>ID</th>
             <td>{{($book->id)}}</td>
@@ -41,8 +36,9 @@
     </table>
 
     <p>
-        <a href="{{ route('books.index) }}">Go Back</a>
+        <a class="btn btn-outline-warning" href="{{ route('books.index') }}"><i class="bi bi-arrow-left-circle-fill"></i>Go Back</a>
     </p>
-    
-</body>
-</html>
+
+@endsection
+
+
